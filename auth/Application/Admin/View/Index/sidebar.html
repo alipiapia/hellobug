@@ -1,0 +1,36 @@
+<div id="sidebar" class="col-sm-3">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-primary">
+			    <div class="panel-heading">
+			     	<h4 class="panel-title">
+			       		<a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="glyphicon glyphicon-user"></i> 会 员 管 理</a>
+			      	</h4>
+			    </div>
+			    <div id="collapseOne" class="panel-collapse collapse in">
+				      	<div class="panel-body">
+				         	<ul class=" nav nav-pills nav-stacked">
+					          	<li><a href="{:U('Admin/Member/memberList')}">会员列表</a></li>
+					      		<li><a href="{:U('Admin/Member/memberAdd')}">添加会员</a></li>
+				      		</ul>
+				     	 </div>
+			    </div>
+	  </div>
+		<div class="panel panel-primary">
+		    <div class="panel-heading">
+		        <h4 class="panel-title">
+			        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="glyphicon glyphicon-list"></i> 权 限 管 理
+			        </a>
+		     	</h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		     	<div class="panel-body">
+			      	<ul class=" nav nav-pills nav-stacked">
+			          	<li><a href="{:U('Admin/Auth/accessList')}">权限列表</a></li>
+			      		<li><a href="{:U('Admin/Auth/accessAdd')}">添加权限</a></li>
+			      		<li><a href="{:U('Admin/Auth/groupList')}">角色管理</a></li>
+			      	</ul>
+		      	</div>
+		    </div>
+		  </div>
+		</div>
+	</div>	

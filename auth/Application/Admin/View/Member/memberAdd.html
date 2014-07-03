@@ -1,0 +1,93 @@
+<extend name="Index:base" />
+<block name="title"><title>添加会员</title></block>
+<block name="script">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.btn-add').click(function(){
+				var passwd=$('#password').val();
+				var repasswd=$('#repassword').val();
+				if(passwd!=repasswd){
+					alert('密码不一致!');
+					return false;
+				}
+			});
+		});
+	</script>
+</block>
+<block name="sidebar">
+	<include file="Index:sidebar" />
+</block>
+<block name="content">
+		<div id="content" class="col-sm-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><i class="glyphicon glyphicon-header"></i> 添	加	会 员</h4>
+				</div>
+
+				<div class="panel-body">
+					<form class="form-horizontal" action="{:U('Admin/Member/addHandle')}" method='post'>
+						<div class="form-group">
+							<label for="username" class="col-sm-2 control-label">用户名:</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" placeholder="用户名" name="username" id="username" />
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="col-sm-2 control-label">密码:</label>
+							<div class="col-sm-5">
+								<input type="password" class="form-control" placeholder="密码" name="password" id="password" />
+								
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label for="repassword" class="col-sm-2 control-label">确认密码:</label>
+							<div class="col-sm-5">
+								<input type="password" class="form-control" placeholder="确认密码" name="repassword" id="repassword" />
+								
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label for="score" class="col-sm-2 control-label">会员积分:</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" placeholder="会员积分" name="score" id="score" />
+								
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>						
+
+						<div class="form-group">
+							<label for="groupName" class="col-sm-2 control-label">所属角色:</label>
+							<div class="col-sm-3">
+								<select class="form-control" name="groupName">
+									<volist name="data" id="vo">
+										<option value="{$vo['id']}">{$vo['title']}</option>
+									</volist>
+								</select>								
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label"></label>
+							<div class="col-sm-5">
+								<button type="submit" class="btn btn-success btn-add">添加</button>
+								
+							</div>
+							
+						</div>
+
+					</form>
+				</div>
+
+			</div>
+		</div>
+</block>
+

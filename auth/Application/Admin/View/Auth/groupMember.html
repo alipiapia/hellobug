@@ -1,0 +1,54 @@
+<extend name="Index:base" />
+<block name="title"><title>成员管理</title></block>
+<block name="sidebar">
+	<include file="Index:sidebar" />
+</block>
+<block name="script">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//
+			$('#collapseTwo').addClass('in');
+			$('#collapseOne').removeClass('in');
+			$('#myTab a:first').tab('show');
+		});
+	</script>
+</block>
+<block name="content">
+		<div id="content" class="col-sm-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><i class="glyphicon glyphicon-header"></i> 成	员	管	理</h4>
+				</div>
+
+				<div class="panel-body">
+					<table class="table table-hover table-bordered table-condensed">
+						<tr>
+							<td>序号</td>
+							<td>会员名</td>
+							<td>所属角色</td>
+							<td>会员积分</td>
+							<td>操作</td>
+						</tr>
+						<volist name="result" id="vo">
+							<tr>
+								<td>{$i+$num}</td>
+								<td>{$vo['username']}</td>
+								<td>{$group['groupName']}</td>
+								<td>{$vo['score']}</td>
+								<td>
+									<div class="btn-group btn-group-sm">						
+										<button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></button><button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button>
+									</div>
+									</td>
+							</tr>
+						</volist>
+							<tr>
+								<td colspan="5">{$page}</td>
+							</tr>
+					</table>
+				</div>
+
+			</div>
+		</div>
+</block>
+

@@ -1,0 +1,19 @@
+<extend name="Index:base" />
+<block name="title"><title>后台首页</title></block>
+<block name="sidebar">
+	<include file="Index:sidebar" />
+</block>
+<block name="content">
+		<div id="content" class="col-sm-8">
+			<if condition="authCheck('score50',session('uid'))">
+				<button class="btn btn-default">积分小于50</button>
+			</if>
+			<if condition="authCheck('score100',session('uid'))">
+				<button class="btn btn-primary">积分大于50小于200</button>
+			</if>
+			<if condition="authCheck('score200',session('uid'))">
+				<button class="btn btn-success">积分大于200</button>
+			</if>
+		</div>
+</block>
+

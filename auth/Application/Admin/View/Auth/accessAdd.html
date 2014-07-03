@@ -1,0 +1,90 @@
+<extend name="Index:base" />
+<block name="title"><title>添加权限</title></block>
+<block name="script">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#collapseTwo').addClass('in');
+			$('#collapseOne').removeClass('in');
+		});
+	</script>
+</block>
+<block name="sidebar">
+	<include file="Index:sidebar" />
+</block>
+<block name="content">
+		<div id="content" class="col-sm-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><i class="glyphicon glyphicon-header"></i> 添	加	权 限</h4>
+				</div>
+
+				<div class="panel-body">
+					<form class="form-horizontal" action="{:U('Admin/Auth/addHandle')}" method='post'>
+						<div class="form-group">
+							<label for="ruleTitle" class="col-sm-2 control-label">规则简述:</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" placeholder="规则简述" name="ruleTitle" id="ruleTitle" />
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>						
+
+						<div class="form-group">
+							<label for="ruleName" class="col-sm-2 control-label">规则标识:</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" placeholder="规则标识" name="ruleName" id="ruleName" />
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label for="condition" class="col-sm-2 control-label">附加条件:</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" placeholder="附加条件" name="condition" id="condition" />
+								
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">是否启用:</label>
+							<div class="btn-group col-sm-5" data-toggle="buttons">
+								<label class="btn btn-primary">
+									<input type="radio"  name="status" id="status" checked="checked" value="1" />启用
+								</label>
+
+								<label class="btn btn-danger">
+									<input type="radio"  name="status" id="status" value="0" />禁用
+								</label>
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label for="modules" class="col-sm-2 control-label">所属模块:</label>
+							<div class="col-sm-3">
+								<select class="form-control" name="modules">
+									<volist name="modules" id="vo">
+										<option value="{$vo['id']}">{$vo['moduleName']}</option>
+									</volist>
+								</select>
+								
+							</div>
+							<label class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label"></label>
+							<div class="col-sm-5">
+								<button type="submit" class="btn btn-success btn-add">添加</button>
+								
+							</div>
+							
+						</div>
+
+					</form>
+				</div>
+
+			</div>
+		</div>
+</block>
+

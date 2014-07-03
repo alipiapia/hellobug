@@ -1,0 +1,65 @@
+<extend name="Index:base" />
+<block name="title"><title>权限列表</title></block>
+<block name="script">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#collapseTwo').addClass('in');
+			$('#collapseOne').removeClass('in');
+		});
+	</script>
+</block>
+<block name="sidebar">
+	<include file="Index:sidebar" />
+</block>
+<block name="content">
+		<div id="content" class="col-sm-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title"><i class="glyphicon glyphicon-header"></i> 权 限 列 表</h4>
+				</div>
+
+				<div class="panel-body">
+					<table class="table table-hover table-bordered table-condensed">
+						<tr>
+							<td>序号</td>
+							<td>规则标识</td>
+							<td>规则简述</td>
+							<td>附加条件</td>
+							<td>所属模块</td>
+							<td>状态</td>
+							<td>操作</td>
+						</tr>
+						<volist name='data' id="vo">
+						<tr>
+							<td>{$i+$num}</td>
+							<td>{$vo['name']}</td>
+							<td>{$vo['title']}</td>
+							<td>{$vo['term']}</td>
+							<td>{$vo['moduleName']}</td>
+							<td>
+								<if condition="$vo['status'] eq 1"><span class="label label-success"><i class="glyphicon glyphicon-ok"></i></span>
+								<else />
+									<span class="label label-danger">							
+									<i class="glyphicon glyphicon-remove"></i></span>
+								</if>
+							</td>
+							<td>
+								<div class="btn-group btn-group-xs">
+									<a href="#" class="btn btn-warning">修改</a>
+									<a href="{:U('Admin/Auth/accessDelHandle',array('id'=>$vo['id']))}" class="btn btn-danger">删除</a>
+								</div>
+
+							</td>
+						</tr>
+
+						</volist>
+						<tr>
+							<td colspan='7'>{$page}</td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+		</div>
+</block>
+
